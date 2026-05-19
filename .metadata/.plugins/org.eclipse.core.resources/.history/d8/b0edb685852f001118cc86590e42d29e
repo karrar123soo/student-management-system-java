@@ -1,0 +1,19 @@
+package javaproject;
+
+
+
+public class pc{
+
+	public static void main(String[] args) throws Exception {
+		Runnable r=()->System.out.println("Runnable Thread");
+		
+		new Thread(r).start();
+								}
+		}
+
+
+
+
+
+
+			

@@ -1,0 +1,134 @@
+package main;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+import util.FileUtil;
+
+import exception.StudentNotFoundException;
+import model.Student;
+import service.StudentService;
+
+public class MainApp {
+
+	public static void main(String[] args) throws StudentNotFoundException, IOException {
+		// TODO Auto-generated method stub
+		
+		Scanner sc=new Scanner(System.in);
+		
+		StudentService service=new StudentService();
+		
+		while (true) {
+			System.out.println("\n1 Add");
+			System.out.println("2 view");
+			System.out.println("3 search");
+			System.out.println("4 Delete");
+			System.out.println("5 update");
+			System.out.println("6 sort By Marks");
+			System.out.println("7 sort By Name");
+			System.out.println("8 search By Name");
+			System.out.println("9 Save To File");
+			System.out.println("10 Exit");
+			
+			
+			
+			int choice =sc.nextInt();
+			
+			
+				switch(choice) {
+				
+				case 1:
+					System.out.println("Enter ID:");
+					int id=sc.nextInt();
+					
+					System.out.println("Enter Name: ");
+					  String name=sc.next();
+					
+					
+					System.out.println("Enter Marks");
+					double marks=sc.nextDouble();
+					
+					
+					service.addStudent(
+							new Student(id,name,marks));
+					
+					
+					break;
+					
+					
+				case 2:
+					
+					service.viewAllStudent();
+					break;
+					
+					
+				case 3:
+					System.out.print("Enter ID:");
+					
+					System.out.println(
+							service.searchStudent(sc.nextInt()));
+					
+					break;
+					
+				case 4:
+					System.out.print("Enter ID:");
+					
+					service.deleteStudent(sc.nextInt());
+					break;
+					
+					
+				case 5:
+					System.out.println("Enter ID");
+					int uid=sc.nextInt();
+					
+					System.out.println("Enter New Name:");
+					String uname=sc.next();
+					
+					
+					System.out.println("Enter New Marks:");
+					double umarks=sc.nextDouble();
+					
+					service.UpdateStudent(uid, uname, umarks);
+					break;
+					
+				case 6:
+					service.sortByMarks();
+					break;
+					
+				case 7:
+					service.sortByName();
+					break;
+				
+				
+				case 8:
+					System.out.println("Enter Name");
+					service.searchByName(sc.next());
+					break;
+					
+				case 9:
+					FileUtil.saveToFile(
+							service.getStudentMap());
+					break;
+					
+					
+					
+					
+				case 10:
+					System.exit(0);
+					break;
+				}
+		}
+	}
+}
+
+	
+
+
+		
+		
+		
+			
+					
+					
+				
+				

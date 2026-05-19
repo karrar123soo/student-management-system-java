@@ -1,0 +1,35 @@
+package jddc;
+
+import java.time.Duration;
+
+public class ps {
+
+	public static void main(String[] args) {
+		// remove duplicates sorted array 
+		
+		int[]a= {1,1,2,2,3,4,4};
+		
+		for(int i=0; i<a.length -1;i++) {
+			if(a[i]!=a[i+1]) {
+				System.out.println(a[i]+ " ");
+			}
+		}
+			System.out.println(a[a.length-1]);
+		
+		
+				
+			
+		
+		
+		
+		
+			}
+	}
+
+
+
+
+
+
+
+

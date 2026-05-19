@@ -1,0 +1,93 @@
+package service;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import exception.StudentNotFoundException;
+import model.Student;
+
+public class StudentService {
+
+	private Map<Integer, Student> studentMap = new HashMap<>();
+
+	// Add student
+	public void addStudent(Student s) {
+		studentMap.put(s.getId(), s);
+		System.out.println("Student Added");
+
+	}
+
+	// view All
+	public void viewAllStudent() {
+
+		if (studentMap.isEmpty()) {
+			System.out.println("No Student found");
+			return;
+		}
+
+		for (Student s : studentMap.values()) {
+			System.out.println(s);
+
+		}
+	}
+	// Search by ID
+
+	public Student searchStudent(int id) throws StudentNotFoundException {
+
+		if (!studentMap.containsKey(id)) {
+			throw new StudentNotFoundException("student not Found");
+
+		}
+		return studentMap.get(id);
+	}
+
+	// Delete
+
+	public void deleteStudent(int id) throws StudentNotFoundException {
+
+		searchStudent(id);
+
+		studentMap.remove(id);
+
+		System.out.println("Student Deleted");
+
+	}
+
+	// Update
+	public void UpdateStudent(int id, String name, double marks) throws StudentNotFoundException {
+
+		Student s = searchStudent(id);
+
+		s.setName(name);
+		s.setMarks(marks);
+
+		System.out.println("Student updated");
+	}
+
+	// sort by Name
+
+	public void sortByName() {
+		List<Student> list = new ArrayList<>(studentMap.values());
+
+		list.sort(Comparator.comparing(Student::getName));
+
+		for (Student s : list) {
+			System.out.println(s);
+
+		}
+	}
+
+	// sort by marks
+	public void sortByMarks() {
+		List<Student> list = new ArrayList<>(studentMap.values());
+
+		list.sort(Comparator.comparingDouble(Student::getMarks));
+
+		for (Student s : list) {
+			System.out.println(s);
+		}
+	}
+}

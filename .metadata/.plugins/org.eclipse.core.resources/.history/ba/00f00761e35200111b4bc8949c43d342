@@ -1,0 +1,104 @@
+package util;
+
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import model.Student;
+
+public class FileUtil{
+	
+	public static void saveToFile(
+			Map<Integer,Student> studentMap)
+	
+		try(BufferedWriter bw=
+				  new BufferedWriter(
+					new FileWriter("Studend.txt"))){
+			
+			for (Student s:studentMap.values()) {
+				
+				bw.write(
+						s.getId()+","+
+						s.getName()+","+
+						s.getMarks());
+				
+				bw.newLine();
+				
+			}
+			System.out.println("Data Saved sucessfully");
+			
+			
+			
+			
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			
+			
+			
+		}
+	}
+	
+
+public static Map<Integer,Student> loadFromFile (){
+	
+	Map<Integer, Student> studentMap=new HashMap<>();
+	
+	try(BufferedReader br=
+		new BufferedReader(
+				new FileReader("student.txt"))){
+		
+		
+			
+		String line;
+		while((line=br.readLine())!=null) {
+			
+			String []data=line.split(",");
+			
+			int id=Integer.parseInt(data[0]);
+			
+			String name=data[1];
+			
+			double marks=Double.parseDouble(data[2]);
+			
+			Student s=new Student(id,name,marks);
+			
+			studentMap.put(id, s);
+			
+		}
+	} catch(Exception e) {
+		System.out.println("No pervious Data Found");
+		
+	}
+	return studentMap;
+	
+	}
+
+	}
+			
+			
+			
+		
+			
+			
+			
+		
+	
+
+			
+			
+			
+	
+	
+	
+	
+	
+	
+
+
+	

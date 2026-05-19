@@ -1,0 +1,30 @@
+package controller;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.StudentRepository;
+
+import entity.Student;
+
+
+
+
+@RestController
+
+@RequestMapping("/Student")
+
+public class StudentController {
+	
+	private StudentRepository repo;
+	
+	
+	public Student saveStudent{
+		    @RequestBody Student student){
+		    	
+		    	return repo.save(student);
+		    	
+		    	
+		    }
+	}

@@ -1,0 +1,2 @@
+spring.application.name=apnaprojectname-16
+server.port=8085

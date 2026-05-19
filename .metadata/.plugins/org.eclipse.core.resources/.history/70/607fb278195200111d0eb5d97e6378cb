@@ -1,0 +1,44 @@
+package util;
+
+
+import java.io.BufferedWriter;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
+
+import model.Student;
+
+public class FileUtil{
+	
+	public static void saveToFile(
+	Map<Integer, Student> studentMap) throws IOException{
+		
+		try(BufferedWriter bw=
+				  new BufferedWriter(
+					new FileWriter("Studend.txt"))){
+			
+			for (Student s:studentMap.values()) {
+				
+				bw.write(
+						s.getId()+","+
+						s.getName()+","+
+						s.getMarks());
+				
+				bw.newLine();
+				
+			}
+			System.out.println("Data Saved sucessfully");
+			
+			
+			
+			
+			
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			
+			
+			
+		}
+}
+	

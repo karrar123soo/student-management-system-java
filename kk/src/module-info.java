@@ -1,0 +1,2 @@
+module kk {
+}

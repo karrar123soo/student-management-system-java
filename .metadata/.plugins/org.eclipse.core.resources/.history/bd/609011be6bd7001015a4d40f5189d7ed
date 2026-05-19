@@ -1,0 +1,28 @@
+package jddc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+
+
+public class DataInsert {
+
+	
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		//step the drive
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		String username="root";
+		String password="root";
+		String url="jdbc: mysql://localhost:3306/new";
+		Connection con=DriverManager.getConnection(url,username,password);
+		Statement st=con.createStatement();
+		int r=st.executeUpdate("insert into student values(556,36,'ram')");
+		System.out.println("data insert"+r);
+		
+
+	}
+
+}

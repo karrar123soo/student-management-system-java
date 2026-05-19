@@ -1,0 +1,40 @@
+package com.example.demo.controller;
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entity.Student;
+import com.example.demo.repository.StudentRepository;
+
+
+
+
+@RestController
+
+@RequestMapping("/students")
+
+public class StudentController {
+	
+
+	@Autowired
+	private StudentRepository repo;
+	
+	public Student saveStudent(@RequestBody Student  Student) {
+		
+		return repo.save(Student);
+	}
+	
+		
+		@GetMapping("/test")
+		public String test() {
+			return "working";
+		}
+		    	
+		    }
+	
+

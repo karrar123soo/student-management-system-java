@@ -1,0 +1,47 @@
+package classrive;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+public class Main{
+	
+	
+	
+	
+public static void main(String[] args) {
+	// TODO Auto-generated method stub
+	// first non-repeating character
+	
+	String s="swiss";
+	
+	for(int i=0; i<s.length();i++)
+		
+		
+		
+			}
+
+	}
+
+
+
+
+
+	
+	
+	
+	
+
+
+	    
+	    
+	   
+
+		
+	
+
+
+
+
+
+	
+		

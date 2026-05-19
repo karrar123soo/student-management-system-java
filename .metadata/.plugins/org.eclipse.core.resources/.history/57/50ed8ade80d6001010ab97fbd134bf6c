@@ -1,0 +1,44 @@
+package auto;
+
+import java.awt.Desktop.Action;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class DragDron {
+
+	
+	    public static void main(String[] args) throws InterruptedException {
+	        System.out.println("start selenium Drag & Drop Projects");
+	      
+	        WebDriver driver=new
+	        		FirefoxDriver();
+	        driver.get("");
+	        //Switch into frame
+	        WebElement framedrop=driver.findElement(By.tagName("iframe"));
+	        
+	        driver.switchTo().frame(framedrop);
+	        WebElement drag=driver.findElement(By.id("draggable"));
+	        WebElement drop=driver.findElement(By.id("droppable"));
+	        Thread.sleep(2000);
+	        
+	        Actions ACT=new Actions (driver);
+	        
+	        ACT.dragAndDrop(drag, drop).build().perform();
+	        Thread.sleep(2000);
+	        //driver.close();
+	        
+	        //WebElement element=driver.fintElement(By.id("draggable"));
+	        	
+
+
+	    }
+	
+		
+
+	}
+
+
